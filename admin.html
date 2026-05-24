@@ -1,0 +1,78 @@
+<!-- admin.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RF Creations | Command Terminal Control</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        body { background: #050507; }
+        .admin-wrapper { max-width: 1300px; margin: 4rem auto; padding: 2rem; }
+        .panel-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 3rem; border-bottom: 1px solid var(--card-border); padding-bottom: 1.5rem; }
+        .auth-card { max-width: 450px; margin: 10rem auto; background: var(--card-bg); border: 1px solid var(--card-border); padding: 3.5rem; border-radius: 24px; backdrop-filter: blur(20px); }
+        .auth-card h2 { margin-bottom: 1.5rem; font-size: 1.8rem; text-align: center; }
+        .orders-table-wrapper { width: 100%; overflow-x: auto; background: var(--card-bg); border: 1px solid var(--card-border); border-radius: 20px; }
+        table { width: 100%; border-collapse: collapse; text-align: left; font-size: 0.95rem; }
+        th { background: rgba(255,255,255,0.02); padding: 1.2rem 1.5rem; color: var(--text-muted); font-weight: 600; text-transform: uppercase; font-size: 0.75rem; letter-spacing: 0.05em; border-bottom: 1px solid var(--card-border); }
+        td { padding: 1.2rem 1.5rem; border-bottom: 1px solid rgba(255,255,255,0.02); vertical-align: top; }
+        tr:hover td { background: rgba(255,255,255,0.01); }
+        .btn-delete { background: rgba(231, 76, 60, 0.1); border: 1px solid rgba(231, 76, 60, 0.2); color: #e74c3c; padding: 0.4rem 0.8rem; border-radius: 6px; cursor: pointer; transition: var(--transition-smooth); }
+        .btn-delete:hover { background: #e74c3c; color: #fff; }
+    </style>
+</head>
+<body>
+
+    <!-- Authentication Gate Screen Layer -->
+    <div id="authGateContainer" class="auth-card">
+        <h2>Terminal Verification</h2>
+        <form id="adminLoginForm">
+            <div class="form-group">
+                <label>Admin Identifier ID</label>
+                <input type="email" id="adminEmail" required placeholder="name@agency.com">
+            </div>
+            <div class="form-group">
+                <label>Access Key Crypt</label>
+                <input type="password" id="adminPassword" required placeholder="••••••••">
+            </div>
+            <button type="submit" class="btn-primary full-width">Unlock Master Console</button>
+        </form>
+        <div id="authAlert" class="form-alert error hidden"></div>
+    </div>
+
+    <!-- Active Management Workspace Panel Grid Layout Layer -->
+    <div id="dashboardWorkspace" class="admin-wrapper hidden">
+        <div class="panel-header">
+            <div>
+                <h1>Command Center</h1>
+                <p style="color: var(--text-muted); margin-top: 0.3rem;">Real-time Pipeline Orders Acquisition Routing Monitoring</p>
+            </div>
+            <button id="logoutBtn" class="btn-secondary" style="padding: 0.6rem 1.5rem; border-radius: 8px;">Exit Session</button>
+        </div>
+
+        <div class="orders-table-wrapper">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Target Pipeline Contact / Date</th>
+                        <th>Target Growth SelectionFocus</th>
+                        <th>Strategic Notes Context</th>
+                        <th>Actions Execution Control</th>
+                    </tr>
+                </thead>
+                <tbody id="ordersTableBody">
+                    <tr>
+                        <td colspan="4" style="text-align: center; color: var(--text-muted); padding: 3rem;">Querying state engine data array variables...</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <script type="module" src="js/admin.js"></script>
+</body>
+</html>
