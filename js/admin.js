@@ -92,12 +92,7 @@ function initializeRealtimeOrderStream() {
             btn.addEventListener("click", async (e) => {
                 const docIdToDelete = btn.getAttribute("data-id");
                 if (confirm("Confirm permanent removal of lead log registration record?")) {
-                    try {
-                        await deleteDoc(doc.getFirestoreDocRefInstance(db, "orders", docIdToDelete));
-                    } catch (err) {
-                        // Handle standard modern collection reference mappings
-                        await deleteDoc(doc(db, "orders", docIdToDelete));
-                    }
+                    await deleteDoc(doc(db, "orders", docIdToDelete));
                 }
             });
         });

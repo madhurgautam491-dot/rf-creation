@@ -239,7 +239,7 @@ section {
 /* Grid Implementations (Services) */
 .services-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(260px, 1max));
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
     gap: 2rem;
 }
 .service-card {
